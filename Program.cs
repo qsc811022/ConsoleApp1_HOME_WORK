@@ -17,16 +17,33 @@ namespace ConsoleApp1
             static void Q1()
             {
                 DisplayHeader("Q1");
-                 //todo Q1
-                 // 顯示今年星期天的所有日期
-               
-                 DateTime dt = new DateTime(2022,01,02);
-                //Console.WriteLine(dt.DayOfWeek.ToString());
-                for (int i=7;i<365;i=i+7)
+               //todo Q1
+               // 顯示今年星期天的所有日期
+               DateTime  dt = DateTime.Now;
+               var year=Convert.ToInt32(dt.Year);
+               var result = dt.Year;
+                if (result % 400==0 || result %4==0 && result%100!=0)
                 {
-                   Console.WriteLine(dt.AddDays(i));
+                    for (int i = 1; i < 366; i++)
+                    {
+                        if (i % 7 == 0)
+                        {
+                        Console.WriteLine(dt.AddDays(i));
+                        }
+                    }
+                }
+                else
+                {
+                for (int i = 1; i < 365; i++)
+                {
+                    if (i % 7 == 0 && dt.Year== year)
+                    {
+                        Console.WriteLine(dt.AddDays(i));
+                    }
                 }
             }
+
+        }
             static void Q2()
             {
                 DisplayHeader("Q2");
